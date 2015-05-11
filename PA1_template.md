@@ -38,7 +38,7 @@ hist(daily_totals$steps, breaks = 10, main = "Histogram of daily steps taken",
      xlab = "Total number of daily steps")
 ```
 
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
+![plot of chunk daily_totals](figure/daily_totals-1.png) 
 
 
 ```r
@@ -65,7 +65,7 @@ with(interval_means, plot(interval, steps, type = "l",
                            main = "Average daily activity pattern"))
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
+![plot of chunk interval_means](figure/interval_means-1.png) 
 
 (S)he wakes up slighly before six o'clock, most probably walks to work between 8 and 9 o'clock, stays active throughout the day with peaks at around lunch time and after work until around 19 o'clock when (s)he starts to relax. (S)he goes to bed at latest at midnight. We can say with relatively high confidence that this person worked regular office hours during the measured time period.
 
@@ -115,7 +115,7 @@ hist(imputed_daily_totals$steps, breaks = 10,
      xlab = "Total number of imputed daily steps")
 ```
 
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png) 
+![plot of chunk imputed_daily_totals](figure/imputed_daily_totals-1.png) 
 
 The numbers tell a similar story:
 
@@ -154,6 +154,6 @@ xyplot(steps ~ interval | day, data = week_interval_totals, type = c("l", "g"), 
        scales = list(x = list(at = ticks, labels = format(ticks, "%H:%M"))))
 ```
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png) 
+![plot of chunk panel_by_days](figure/panel_by_days-1.png) 
 
 (S)he wakes up on average a little later during the weekends and goes to bed a little later as well. Also the suspected morning walk to work is even more pronounced during the weekdays but equally absent from the weekend mornings. Otherwise the person in question seems to be leading an active life every day of the week.

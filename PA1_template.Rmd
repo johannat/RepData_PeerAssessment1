@@ -30,7 +30,7 @@ For this part of the assignment, NAs are omitted. That is the default behaviour 
 
 The anonymous test person is walking relatively actively during most of the days.
 
-```{r}
+```{r daily_totals}
 daily_totals <- aggregate(steps ~ date, data, sum)
 hist(daily_totals$steps, breaks = 10, main = "Histogram of daily steps taken",
      xlab = "Total number of daily steps")
@@ -48,7 +48,7 @@ summary(daily_totals$steps)
 
 The anonymous test person shows a clear daily activity pattern.
 
-```{r}
+```{r interval_means}
 interval_means <- aggregate(steps ~ interval, data, mean)
 with(interval_means, plot(interval, steps, type = "l",
                            main = "Average daily activity pattern"))
@@ -84,7 +84,7 @@ In this case, the imputing process was relatively straightforward as the data wa
 
 The imputed daily steps are distributed similarly to the non-imputed steps. Visually there's no difference to be observed:
 
-```{r}
+```{r imputed_daily_totals}
 imputed_daily_totals <- aggregate(steps ~ date, imputed_data, sum)
 hist(imputed_daily_totals$steps, breaks = 10,
      main = "Histogram of imputed daily steps taken",
@@ -112,7 +112,7 @@ data$day <- factor(data$day, levels = c(TRUE, FALSE), labels = c("weekend", "wee
 
 A visual comparison of the resulting data shows that the person in question seems to be working during the weekdays and probably has weekends off:
 
-```{r}
+```{r panel_by_days}
 library(lattice)
 week_interval_totals <- aggregate(steps ~ interval + day, data, mean)
 ticks = seq(min(week_interval_totals$interval), by = "3 hour", length = 9)
